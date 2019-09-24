@@ -2,7 +2,6 @@ module PNG;
 
 use Color8: all;
 use String: { string, sprintf };
-use FileSystem: { tmpnam };
 use Process: { system };
 
 provide all;
@@ -34,7 +33,7 @@ external int writePNG( string NAME, color[.,.] array);
  */
 int showPNG( color[.,.] array)
 {
-    name = tmpnam();
+    name = "temp";
     ret = writePNG( name, array);
     cmd = sprintf("(display '%s' || xv '%s' || firefox '%s')",
                   name, name, name);
