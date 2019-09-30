@@ -31,9 +31,9 @@ external int writePNG( string NAME, color[.,.] array);
 /*
  * Save color image to PNG and visualize it somehow.
  */
-int showPNG( color[.,.] array)
+int showPNG( string tempName, color[.,.] array)
 {
-    name = "temp";
+    name = tempName;
     ret = writePNG( name, array);
     cmd = sprintf("(display '%s' || xv '%s' || firefox '%s')",
                   name, name, name);
@@ -41,3 +41,4 @@ int showPNG( color[.,.] array)
 
     return ret;
 }
+
